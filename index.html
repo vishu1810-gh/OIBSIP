@@ -4,47 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>MS Dhoni Tribute Page</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-    <div class="calculator">
-        <input type="text" id="display" readonly>
-
-        <div class="buttons">
-            <!-- First row -->
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="deleteLast()">DEL</button>
-            <button onclick="appendValue('/')">÷</button>
-            <button onclick="appendValue('*')">×</button>
-
-            <!-- Second row -->
-            <button onclick="appendValue('7')">7</button>
-            <button onclick="appendValue('8')">8</button>
-            <button onclick="appendValue('9')">9</button>
-            <button onclick="appendValue('-')">−</button>
-
-            <!-- Third row -->
-            <button onclick="appendValue('4')">4</button>
-            <button onclick="appendValue('5')">5</button>
-            <button onclick="appendValue('6')">6</button>
-            <button onclick="appendValue('+')">+</button>
-
-            <!-- Fourth row -->
-            <button onclick="appendValue('1')">1</button>
-            <button onclick="appendValue('2')">2</button>
-            <button onclick="appendValue('3')">3</button>
-            <button onclick="calculateResult()">=</button>
-
-            <!-- Fifth row -->
-            <button onclick="appendValue('0')">0</button>
-            <button onclick="appendValue('.')">.</button>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Mahendra Singh Dhoni</h1>
+            <p>Captain Cool | Legend | Inspiration</p>
         </div>
-    </div>
+    </header>
 
-    <script src="script.js"></script>
+    <!-- About Section -->
+    <section class="about">
+        <h2>About MS Dhoni</h2>
+        <p>
+            Mahendra Singh Dhoni, born on 7 July 1981, is one of the greatest cricket captains of all time.
+            Known for his calm demeanor and sharp cricketing brain, Dhoni led India to victory in the 2007 ICC T20 World
+            Cup, 2011 ICC Cricket World Cup, and the 2013 ICC Champions Trophy.
+        </p>
+    </section>
+
+    <!-- Achievements -->
+    <section class="achievements">
+        <h2>Career Highlights</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="dhoniworldcup.jpeg" alt="Dhoni World Cup">
+                <h3>2011 World Cup</h3>
+                <p>Led India to victory with an iconic winning six.</p>
+            </div>
+            <div class="card">
+                <img src="dhonit20cup.jpeg" alt="Dhoni T20">
+                <h3>2007 T20 World Cup</h3>
+                <p>Won the inaugural T20 World Cup in South Africa.</p>
+            </div>
+            <div class="card">
+                <img src="dhonicmapions.jpeg" alt="Dhoni Champions Trophy">
+                <h3>2013 Champions Trophy</h3>
+                <p>First captain to win all three ICC trophies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote">
+        <blockquote>
+            "I believe in giving more than 100% on the field, and I don't really worry about the result."
+        </blockquote>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Made with ❤️ by Vishwajeet Mahajan | Tribute to MS Dhoni</p>
+    </footer>
 </body>
 
 </html>
