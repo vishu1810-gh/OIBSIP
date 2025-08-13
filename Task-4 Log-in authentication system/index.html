@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+            width: 350px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #38f9d7, #43e97b);
+        }
+
+        .link {
+            text-align: center;
+            margin-top: 10px;
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="registerDiv">
+        <h2>Register</h2>
+        <input type="text" id="regUsername" placeholder="Username">
+        <input type="password" id="regPassword" placeholder="Password">
+        <button onclick="register()">Register</button>
+        <div class="link" onclick="showLogin()">Already have an account? Login</div>
+    </div>
+
+    <div class="container" id="loginDiv" style="display:none;">
+        <h2>Login</h2>
+        <input type="text" id="loginUsername" placeholder="Username">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <div class="link" onclick="showRegister()">Don't have an account? Register</div>
+    </div>
+
+    <div class="container" id="secureDiv" style="display:none;">
+        <h2>Welcome!</h2>
+        <p>You have successfully logged in to the secured page.</p>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        function showRegister() {
+            document.getElementById("loginDiv").style.display = "none";
+            document.getElementById("registerDiv").style.display = "block";
+        }
+        function showLogin() {
+            document.getElementById("registerDiv").style.display = "none";
+            document.getElementById("loginDiv").style.display = "block";
+        }
+        function register() {
+            let username = document.getElementById("regUsername").value;
+            let password = document.getElementById("regPassword").value;
+            if (username && password) {
+                localStorage.setItem("username", username);
+                localStorage.setItem("password", password);
+                alert("Registration successful! Please login.");
+                showLogin();
+            } else {
+                alert("Please fill all fields.");
+            }
+        }
+        function login() {
+            let username = document.getElementById("loginUsername").value;
+            let password = document.getElementById("loginPassword").value;
+            let storedUser = localStorage.getItem("username");
+            let storedPass = localStorage.getItem("password");
+
+            if (username === storedUser && password === storedPass) {
+                document.getElementById("loginDiv").style.display = "none";
+                document.getElementById("secureDiv").style.display = "block";
+            } else {
+                alert("Invalid username or password.");
+            }
+        }
+        function logout() {
+            document.getElementById("secureDiv").style.display = "none";
+            showLogin();
+        }
+    </script>
+
+</body>
+
+</html>
